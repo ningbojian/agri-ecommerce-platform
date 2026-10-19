@@ -1,0 +1,6 @@
+<view class="wrap">
+  <view class="title">意见反馈</view>
+  <textarea class="input" maxlength="300" placeholder="写下你的意见或建议" bindinput="onInput"></textarea>
+  <button class="submit" bindtap="submit">提交反馈</button>
+  <view class="hint">当前为整理版占位页面，后续接入后端接口。</view>
+</view>

@@ -1,0 +1,12 @@
+<view class="rq">
+<view class="product-name-wrap">
+<view class="ui-list-item-info">
+<view class="address">
+  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text> 请输入姓名：<input value="{{name}}" bindinput="handleInputName"/>
+  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text> 请输入联系方式：<input value="{{tel}}" bindinput="handleInputTel"/>
+  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text> 请输入收货地址：<input value="{{address}}" bindinput="handleInputAddress"/>
+</view>
+</view>
+</view>
+</view>
+<button bindtap="submit">确定</button>

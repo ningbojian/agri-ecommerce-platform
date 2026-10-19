@@ -1,0 +1,204 @@
+<scroll-view class='main-scroll' scroll-y style="height: 100%">
+
+
+<view class='header'>慈善机构详细信息</view>
+<text>\n</text>
+<navigator url="/pages/firstpage/jiuzhu/fupin/fupin" hover-class="changestyle"class="lianjie">  
+        <view class="text">
+          <text>扶贫消费832平台：
+  www.fupin832.com
+</text>
+</view>
+</navigator>
+<text>\n</text>
+
+
+<navigator url="/pages/firstpage/jiuzhu/juanyi/juanyi" hover-class="changestyle"class="lianjie">  
+  <view class="text"><text>中国捐衣网：
+  http://www.juanyi.org.cn/</text></view>
+</navigator>
+<text>\n</text>     
+<view class="text"><text>中国青少年发展基金会：
+  https://www.cydf.org.cn/</text></view><text>\n</text> 
+<view class="text"><text>中华少年儿童慈善捐助基金会：
+  http://www.ccafc.org.cn/index.aspx</text></view><text>\n</text> 
+<view class="text"><text>中国扶贫基金会：
+  http://www.cfpa.org.cn/</text></view><text>\n</text> 
+<view class="text"><text>安徽省红十字会：
+  http://www.96399.org.cn/</text></view><text>\n</text> 
+<view class="text"><text>安徽省爱心慈善捐助基金会：
+  http://www.mdbdfa.org/</text></view><text>\n</text> 
+<view class="text"><text>陕西省红十字会：
+  http://www.snredcross.org.cn/</text></view><text>\n</text> 
+<view class="text"><text>陕西省慈善协会官方网站：
+  http://www.snredcross.org.cn/</text></view><text>\n</text> 
+<view class="text"><text>云南省红十字会：
+  http://www.ynredcross.cn/</text></view><text>\n</text> 
+<view class="text"><text>云南省扶贫基金会：
+  http://www.cyfupin.cn/</text></view><text>\n</text> 
+<view class="text"><text>甘肃省红十字会：
+  http://www.gsredcross.org.cn/</text></view><text>\n</text> 
+<view class="text"><text>甘肃省慈善总会：
+  http://www.gscs.org.cn/public/index.php</text></view><text>\n</text> 
+<view class="text"><text>广西红十字会：
+  http://www.boaigx.com/</text></view><text>\n</text> 
+<view class="text"><text>广西慈善总会：
+  http://www.gxcszh.com/</text></view><text>\n</text> 
+<view class="text"><text>贵州省扶贫基金会：
+  http://www.gzfp.org.cn/</text></view><text>\n</text> 
+
+  <view class='header'>救助热线</view>
+  <text>\n</text>
+
+<view class="text"><text>名称 : 北京市接受救灾捐赠事务管理中心</text></view>
+<view class="text"><text>地址 : 北京市宣武区右安门内大街65号</text></view>
+<view class="text"><text>电话 : 010－63562755</text></view>
+<view class="text"><text>邮编 : 100054</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 东城区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 东城区东四13条32号</text></view>
+<view class="text"><text>电话 : 010－64001306</text></view>
+<view class="text"><text>邮编 : 100007</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 西城区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 西城区高井胡同16号</text></view>
+<view class="text"><text>电话 : 010－62274355</text></view>
+<view class="text"><text>邮编 : 100035</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 崇文区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 崇文区培新街2号</text></view>
+<view class="text"><text>电话 : 010－67162676</text></view>
+<view class="text"><text>邮编 : 100061</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 宣武区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 宣武区崇效胡同18号</text></view>
+<view class="text"><text>电话 : 010－63556360</text></view>
+<view class="text"><text>邮编 : 100053</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 朝阳区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 朝阳区道家园6号楼副楼</text></view>
+<view class="text"><text>电话 : 010－65024588</text></view>
+<view class="text"><text>邮编 : 100025</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 海淀区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 海淀区西苑操场15号</text></view>
+<view class="text"><text>电话 : 010－62625347</text></view>
+<view class="text"><text>邮编 : 100080</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 丰台区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 丰台区北大街9号</text></view>
+<view class="text"><text>电话 : 010－68312023</text></view>
+<view class="text"><text>邮编 : 100071</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 石景山区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 石景山区八角北里三栋</text></view>
+<view class="text"><text>电话 : 010－88913057</text></view>
+<view class="text"><text>邮编 : 100043</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 房山区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 房山区良乡西路10号</text></view>
+<view class="text"><text>电话 : 010－69374357</text></view>
+<view class="text"><text>邮编 : 102488</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 门头沟区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 新桥南大街25号</text></view>
+<view class="text"><text>电话 : 010－69842723</text></view>
+<view class="text"><text>邮编 : 102300</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 通州区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 新华北街52号</text></view>
+<view class="text"><text>电话 : 010－69547433</text></view>
+<view class="text"><text>邮编 : 101100</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 昌平区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 昌平区水库路</text></view>
+<view class="text"><text>电话 : 010－69742386</text></view>
+<view class="text"><text>邮编 : 102200</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 顺义区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 新顺南大街</text></view>
+<view class="text"><text>电话 : 010－69445221</text></view>
+<view class="text"><text>邮编 : 101300</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 大兴区社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 大兴黄村镇兴政街</text></view>
+<view class="text"><text>电话 : 010－69249924</text></view>
+<view class="text"><text>邮编 : 102600</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 怀柔县社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 青春路28号</text></view>
+<view class="text"><text>电话 : 010－69263271</text></view>
+<view class="text"><text>邮编 : 101400</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 平谷县社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 府前西街8号</text></view>
+<view class="text"><text>电话 : 010－89981046</text></view>
+<view class="text"><text>邮编 : 101200</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 延庆县社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 东外大街66号</text></view>
+<view class="text"><text>电话 : 010－69142371</text></view>
+<view class="text"><text>邮编 : 102100</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 密云县社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 密西路</text></view>
+<view class="text"><text>电话 : 010－69042741</text></view>
+<view class="text"><text>邮编 : 101500</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 河北省救灾捐赠中心</text></view>
+<view class="text"><text>地址 : 石家庄市北二环西路185号</text></view>
+<view class="text"><text>电话 : 0311－7733119</text></view>
+<view class="text"><text>邮编 : 050000</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 石家庄市救灾募捐办公室 </text></view>
+<view class="text"><text>地址 : 石家庄市中山东路216号</text></view>
+<view class="text"><text>电话 : 0311－6688933</text></view>
+<view class="text"><text>邮编 : 050000</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 保定市救灾捐赠中心</text></view>
+<view class="text"><text>地址 : 保定市陵园路37号</text></view>
+<view class="text"><text>电话 : 0312－3223569</text></view>
+<view class="text"><text>邮编 : 071000</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 沧州市救灾捐赠中心</text></view>
+<view class="text"><text>地址 : 沧州市光荣路11号</text></view>
+<view class="text"><text>电话 : 0317－2085779</text></view>
+<view class="text"><text>邮编 : 061000</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 秦皇岛市社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 海港区港城大街288号</text></view>
+<view class="text"><text>电话 : 0335－3223900</text></view>
+<view class="text"><text>邮编 : 066000</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 承德市社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 石洞子沟收容遣送站院内</text></view>
+<view class="text"><text>电话 : 0314－2022473</text></view>
+<view class="text"><text>邮编 : 067000</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 张家口市社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 桥西区长青路4号</text></view>
+<view class="text"><text>电话 : 0313－8075621</text></view>
+<view class="text"><text>邮编 : 075000</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 廊坊市社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 廊坊市新华路86号</text></view>
+<view class="text"><text>电话 : 0316－2116428</text></view>
+<view class="text"><text>邮编 : 065000</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 衡水市社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 衡水市招贤路7号</text></view>
+<view class="text"><text>电话 : 0310－2058460</text></view>
+<view class="text"><text>邮编 : 053000</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 邢台市社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 邢台市郭守敬路3号</text></view>
+<view class="text"><text>电话 : 0319－2206009</text></view>
+<view class="text"><text>邮编 : 054000</text></view><text>\n</text>
+
+<view class="text"><text>名称 : 唐山市社会捐助接收工作站</text></view>
+<view class="text"><text>地址 : 唐山市西山道5号</text></view>
+<view class="text"><text>电话 : 0315－2802551</text></view>
+<view class="text"><text>邮编 : 063000</text></view><text>\n</text>
+
+
+</scroll-view>

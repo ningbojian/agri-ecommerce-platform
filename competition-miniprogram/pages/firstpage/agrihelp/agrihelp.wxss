@@ -1,0 +1,62 @@
+/* pages/firstpage/firstpage.wxss */
+.header{
+  background:#d1d0d0;
+  color: rgb(0, 0, 0);
+  line-height: 50rpx;
+  flex: 50rpx; /* 不放大不缩小固定100rpx */
+}
+.main-scroll{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; 
+}
+.text1{
+  color: rgb(0, 0, 0);
+  line-height: 350rpx;
+  flex: 50rpx;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-family: FZShuTi;
+  font-size: 90rpx;
+  background-color: darkkhaki;
+}
+.text2{
+  color: rgb(0, 0, 0);
+  line-height: 350rpx;
+  flex: 50rpx;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-family: FZShuTi;
+  font-size: 90rpx;
+  background-color: rgba(144, 238, 144, 0.747);
+}
+.text3{
+  color: rgb(0, 0, 0);
+  line-height: 350rpx;
+  flex: 50rpx;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-family: FZShuTi;
+  font-size: 90rpx;
+  background-color: darksalmon;
+}
+.text4{
+  color: rgb(0, 0, 0);
+  line-height: 350rpx;
+  flex: 50rpx;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-family: FZShuTi;
+  font-size: 90rpx;
+  background-color: darkseagreen;
+}

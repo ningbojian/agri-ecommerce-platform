@@ -1,0 +1,7 @@
+<view class="search">
+  <input type="text" bindblur="listener" bindinput="listener" placeholder="请输入快递单号" value="{{num}}"/>
+
+  <image mode="widthFix" bindtap="sweep" src="/icon/icon_sweep.png"></image>
+
+</view>
+<view bindtap="submit" class="bt_submit">查询</view> 

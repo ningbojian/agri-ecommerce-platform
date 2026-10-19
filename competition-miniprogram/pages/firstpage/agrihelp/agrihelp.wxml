@@ -1,0 +1,39 @@
+<swiper autoplay interval="1000" indicator-dots="true" indicator-color="red" indicator-active-color="blue">
+<!--autoplay自动轮播 interval时间  indicator-dots指示点  indicator-color指示点颜色  indicator-active-color选中后的点-->
+    <swiper-item >
+        <image src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcT7RW6m1.a6M7hQskW3rDJAOoYbUpaHoNBy53GIucNtCb0bs5lGye7bwlFJDtTHn8HqY118FneUyVBWSNXaiNyc!/b&bo=9AHjAQAAAAABFyc!&rf=viewer_4" />                  
+    </swiper-item>
+    <swiper-item >
+        <image src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcT7RW6m1.a6M7hQskW3rDJAC9ZPzoRw08i03uAOhPe4pxiuRtpOjo*sSUYU4MO5sFwfwbpfsqHgTEZaQkDdBJC0!/b&bo=NgJxAQAAAAABF3Q!&rf=viewer_4" >          
+        </image>
+    </swiper-item>
+
+    <swiper-item >
+        <image src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcaKcl68QQvGK.byV0uMcNUg0T5KbDdYgwVFMwHZcyx6.vQIB1Kdhioj0hCeQY7SqwwtdHplBzNiDKCVW24qpAZ4!/b&bo=JgIhAQAAAAABFzQ!&rf=viewer_4" >          
+        </image>
+    </swiper-item>
+    <swiper-item >
+        <image src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcaKcl68QQvGK.byV0uMcNUgH8Xu8TV0vcdViKF6tY52igKvOeZFq.g7mVZyH9lcrwCt82CKrwNM8q12nUNVKGTA!/b&bo=WAKbAQAAAAABF*A!&rf=viewer_4" />                  
+    </swiper-item>
+    <swiper-item >
+        <image src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcaKcl68QQvGK.byV0uMcNUhUsFE8ckCOEGCOGuWKaTk63mE9*lnKR1wydhmDc9hkaft1z8ZpuEwsSaTZpo83lLc!/b&bo=9AE5AQAAAAABF*0!&rf=viewer_4" />                  
+    </swiper-item>
+</swiper>
+
+<view class='header'>产品分类</view>
+
+<navigator url= '/pages/firstpage/agrihelp/liang/liang'>
+<view class='text1'>米面粮油</view>
+</navigator>
+
+<navigator url=  '/pages/firstpage/agrihelp/fruit/fruit'>
+<view class='text2'>水果生蔬</view>
+</navigator>
+
+<navigator url='/pages/firstpage/agrihelp/tea/tea'>
+<view class='text3'>茗茶干货</view>
+</navigator>
+
+<navigator url='/pages/firstpage/agrihelp/meat/meat'>
+<view class='text4'>肉蛋生产</view>
+</navigator>

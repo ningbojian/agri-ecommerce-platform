@@ -1,0 +1,6 @@
+web-view{
+  max-width: 750rpx;
+  overflow: hidden;
+  margin: 0;
+  padding: 0
+}

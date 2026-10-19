@@ -1,0 +1,22 @@
+<!--pages/personal/address/address.wxml-->
+<view  class="orderDetails" wx:for="{{orderList}}" wx:key="id" wx:for-index="index">
+        <view class="orderListTitle">
+          <text class="orderStatus">订单编号{{orderList[index]['orderid']}}</text>
+        </view>
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{orderList[index]['picurl']}}" background-size="cover"/>
+          </view>
+          <view class="productInfo">
+            <view class="productTitle">{{orderList[index]['proname']}}</view>
+            <view class="productTitle">商户:{{orderList[index]['supname']}}</view>
+          </view>
+        </view>
+        <view class="productCount">
+          <view>
+            <text>价格：￥{{orderList[index]['pay']}}</text>
+          </view>
+        </view>
+      </view>
+
+

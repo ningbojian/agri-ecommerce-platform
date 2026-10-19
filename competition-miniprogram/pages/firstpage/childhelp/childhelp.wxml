@@ -1,0 +1,23 @@
+<view class="container">
+  <image src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcS6y99nsoSj6NWzUdrYm1puNJbj.C8ygI7vcvq7Gnjeqq6W.SZgWOvTGtGy20UMYqzctivte.961w5NhVS3JTfk!/b&bo=RgU4BAAAAAADRx0!&rf=viewer_4"></image>
+</view>
+   <view class="login_box">
+  <view class="section">
+    <input placeholder="请输入姓名" placeholder-class="color" bindblur='username' />
+    <image src="/icon/b.png"></image>
+  </view>
+  <view class="section">
+    <input type='number' maxlength='11' placeholder="请输入手机号" placeholder-class="color" bindblur='mobile' />
+    <image src="/icon/a.png"></image>
+  </view>
+  <view class="section">
+    <input  placeholder="请输入捐赠物品" placeholder-class="color" bindblur='product' />
+    <image src="/icon/c.png"></image>
+  </view>
+  <view class="section">
+    <input  placeholder="请输入捐赠目的地" placeholder-class="color" bindblur='address' />
+    <image src="/icon/d.png"></image>
+  </view>
+  <button class="register" type="warn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">提交</button>
+</view>
+

@@ -1,0 +1,25 @@
+.header{
+  background:#F0F0F0	;
+  line-height:0.1rpx;
+  flex: 50rpx; /* 不放大不缩小固定100rpx */
+}
+.text{
+  /* height: 100rpx;
+  line-height: 100rpx; */
+  width: 100%;
+  font-size: 40rpx;
+  background-color: #FFFFFF		;
+ }
+ .register{
+  margin-top: -30rpx;
+}
+.register{
+  background: #fa5151 !important;
+  color: #FFF !important;
+}
+.button{
+ margin-top:10px;
+  margin-left:-50px;
+  width: 40%;
+  height: 70px;
+}

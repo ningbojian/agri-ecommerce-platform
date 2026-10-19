@@ -1,0 +1,109 @@
+/* pages/pay/pay.wxss */
+.ui-list-item-info{
+  margin: 5px 0px;
+  background: #f0eded;
+  border-radius: 1em;
+  height: 100px;
+}
+
+.ui-list-item-info .name{
+  color:#373838 ;
+}
+.ui-list-item-info .address{
+  
+  color:#373838 ;
+  justify-content:flex-end
+}
+
+.ui-list-item-address{
+  color: #373838;
+}
+.ui-list-item-info .choose{
+  
+  background-color: green;
+  color: white;
+  min-width: 100px;
+  max-width: 100px;
+  max-height:30px;
+  min-height: 30px;
+  font-size: 10px;
+  border-radius: 10px;
+  float: right;
+}
+/* 商品详情 */
+page{
+  background-color:rgb(224, 223, 220);
+}
+
+ 
+.orderListTitle {
+  height: 70rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #BEBEBE;
+}
+ 
+ 
+.orderListTitle .orderStatus {
+  float: right;
+  margin-right: 20rpx;
+  color: #2f7b27;
+  font-size: 34rpx;
+  font-size: small;
+}
+ 
+.orderListDetails {
+  display: flex;
+  background: rgb(250, 247, 247);
+  border-bottom: 20rpx solid rgb(224, 223, 220);
+  border-radius: 8%;
+  height: 150px;
+}
+ 
+.orderListDetails .productImg {
+  flex: 1;
+  height:180rpx;
+  width:120px;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+ 
+.orderListDetails .productImg image {
+  width: 100px;
+  height: 100%;
+}
+ 
+.orderListDetails .productInfo {
+  flex: 4;
+  margin: 40rpx 10px 20px 30rpx;
+  font-size:15px;
+ 
+}
+ 
+.orderListDetails .productInfo .productTitle {
+  font-size:15px;
+  word-break:keep-all;     /* 不换行 */
+  white-space:nowrap;      /* 不换行 */
+  margin-bottom:10px;
+}
+ 
+.orderListDetails .productInfo{
+ height: 180px;
+}
+ 
+.orderListDetails .productInfo .danjia{
+  color: rgb(83, 81, 81);
+  float: right;
+  margin-right: 15rpx;
+  font-size: small;
+  font-size:13px;
+}
+.orderListDetails .productInfo .price{
+  color: rgb(204, 11, 11);
+  float: right;
+  margin-right: 15rpx;
+  font-size:15px;
+}
+.bt{
+  background-color: #2f7b27;
+  color: white;
+}

@@ -1,0 +1,29 @@
+<!--pages/personal/address/address.wxml-->
+<scroll-view class="scroll" scroll-y="true" >
+<view wx:for="{{addList}}" wx:key="id" wx:for-index="index" class="rq">
+<view class="product-name-wrap">
+<view class="ui-list-item-info">
+<text class="name">{{addList[index]['addname']}}</text>
+<view class="address">
+  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text> 联系方式：{{addList[index]['addtel']}}
+  
+</view>
+<button class="del" wx:if="{{!flag}}" bindtap="remove" id="{{index}}">删除</button>
+<button class="del" wx:if="{{flag}}" bindtap="submit" id="{{index}}">确定</button>
+<button class="change" bindtap="update" id="{{index}}">修改</button>
+</view>
+<view class="ui-list-item-address">
+  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+  收货地址：{{addList[index]['address']}}
+</view>
+
+
+
+<view class="separate"></view>
+</view>
+
+</view>
+<button class="new" bindtap="save">新建</button>
+</scroll-view>
+
+

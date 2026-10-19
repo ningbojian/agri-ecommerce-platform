@@ -1,0 +1,68 @@
+page{
+  background-color:rgb(224, 223, 220);
+}
+.orderDetails {
+  background: rgb(250, 247, 247);
+  border-bottom: 20rpx solid rgb(224, 223, 220);
+  border-radius: 8%;
+}
+ 
+.orderListTitle {
+  height: 70rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #BEBEBE;
+}
+ 
+ 
+.orderListTitle .orderStatus {
+  float: right;
+  margin-right: 20rpx;
+  color: #2f7b27;
+  font-size: 34rpx;
+  font-size: small;
+}
+ 
+.orderListDetails {
+  display: flex;
+  height: 200rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+}
+ 
+.orderListDetails .productImg {
+  flex: 1;
+  height:180rpx;
+  width:120px;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+ 
+.orderListDetails .productImg image {
+  width: 100px;
+  height: 100%;
+}
+ 
+.orderListDetails .productInfo {
+  flex: 4;
+  margin: 40rpx 10px 20px 30rpx;
+  font-size:15px;
+ 
+}
+ 
+.orderListDetails .productInfo .productTitle {
+  font-size:13px;
+  word-break:keep-all;     /* 不换行 */
+  white-space:nowrap;      /* 不换行 */
+  margin-bottom:10px;
+}
+ 
+.productCount {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #f3f3f3;
+}
+ 
+.productCount>view {
+  color: rgb(235, 83, 83);
+  float: right;
+  margin-right: 30rpx;
+}

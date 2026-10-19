@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/proinfo/proinfo",
+    "pages/logs/logs",
+    "pages/info/info",
+    "pages/personal/personal",
+    "pages/personal/address/address",
+    "pages/personal/order/order",
+    "pages/pay/pay",
+    "pages/personal/address/saveadd/saveadd",
+    "pages/login/login",
+    "pages/personal/about/about",
+    "pages/register/register",
+    "pages/personal/feedback/feedback"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FFFF99",
+    "navigationBarTitleText": "乡村探宝电商小程序",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#ECD46C"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#000000",
+    "backgroundColor": "#FFFF99",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/icon/home.png",
+        "selectedIconPath": "/static/icon/home-selected.png"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "text": "信息发布",
+        "iconPath": "/static/icon/main.png",
+        "selectedIconPath": "/static/icon/main_s.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "/static/icon/personal_center.png",
+        "selectedIconPath": "/static/icon/personal_center-selected.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

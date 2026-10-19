@@ -1,0 +1,40 @@
+<!--pages/proinfo/proinfo.wxml-->
+<view>
+  <swiper class="banners" indicator-dots="true" indicator-color="ivory" indicator-active-color="#d43c33" autoplay="true" interval="3000" duration="1000"> 
+    <swiper-item wx:for="{{bannerList}}" wx:key="bannerId">
+      <image src="{{pro['picurl']}}"/>
+    </swiper-item>
+</swiper>
+<scroll-view scroll-y="true">
+  <view class="detail">
+    <text class="title">{{pro['proname']}}</text>
+    <text class="price">￥{{pro['price']}}</text>
+    <text class="desc">{{pro['descript']}}</text>
+    <view class="supname">
+    <text>店铺:{{pro['supname']}}</text>
+    </view>
+    
+    <text>发货地:{{pro['delivery']}}</text>
+  </view>
+  <view class="separate"></view>
+  <view>
+    <text>生产日期:{{pro['createTime']}}</text>
+  </view>
+</scroll-view>
+<!-- 底部悬浮栏 -->
+<view class="detail-nav">
+<text>数量</text>
+  <!-- 选择数量 -->
+ <!-- 主容器 -->
+<view class="stepper">
+	<!-- 减号 -->
+	<text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+	<!-- 数值 -->
+	<input type="number" bindchange="bindManual" value="{{num}}" />
+	<!-- 加号 -->
+	<text class="normal" bindtap="bindPlus">+</text>
+
+</view>
+  <button class="button-red" bindtap="pay" formType="submit">立即购买</button>
+</view>
+</view>

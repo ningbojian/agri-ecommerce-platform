@@ -1,0 +1,29 @@
+<!--pages/pay/pay.wxml-->
+<view class="ui-list-item-info">
+<text decode="{{true}}" space="{{true}}" class="name">&nbsp;&nbsp;&nbsp;姓名：{{addList[addidx]['addname']}}</text>
+<view class="address">
+  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text> 联系方式：{{addList[addidx]['addtel']}}
+</view>
+<view class="ui-list-item-address">
+  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
+  收货地址：{{addList[addidx]['address']}}
+</view>
+<button  class="choose" bindtap="choose">选择地址</button>
+</view>
+
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="../../static/1.png" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+            <view class="productTitle">{{pro['proname']}}</view>
+            <view class="productTitle">商户:{{pro['supname']}}</view>
+            <view class="danjia">单价：￥{{pro['price']}}</view>
+            <view class="danjia">数量：{{num}}</view>
+            <view class="price">价格：￥{{pay}}</view>
+          </view>
+        </view>
+<view>
+<button  class="bt" bindtap="order2">确定购买</button>
+</view>
+

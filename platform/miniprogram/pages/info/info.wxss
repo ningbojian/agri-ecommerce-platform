@@ -1,0 +1,85 @@
+.swiper {
+  height: 400rpx;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+/* 轮播图样式结束 */
+.animal_info{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 12px;
+  border-top: 1px solid #ededed;
+  /* border-bottom: 1px solid #ededed; */
+  padding-top: 10px;
+  /* background-color: #fff; */
+ border-radius: 5em;
+ background-color: rgb(230, 228, 228);
+
+}
+.animal_photo{
+  width: 100%;
+  margin-bottom: 10px;
+   margin-left: 6px;
+}
+.animal_title{
+  font-weight: bold;
+  font-size: 32rpx;
+  line-height: 36rpx;
+  text-align: center;
+  color: #444;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+.animal_photo image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100rpx;
+  vertical-align: middle;
+}
+.animal_nikename{
+  /* font-weight: bold; */
+  margin-left: 10px;
+  vertical-align: middle;
+  font-size: 26rpx;
+}
+ 
+.animal_img {
+  width: 100%;
+  margin: auto 0;
+ 
+}
+.animal_intro{
+ 
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+  color: #666;
+  line-height: 40rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  /* text-align:justify; */
+  
+ 
+}
+.article_state{
+  width: 100%;
+  flex-direction: row;
+  margin-bottom: 20rpx;
+}
+.article_stateimg{
+  width: 26rpx;
+  height: 26rpx;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+.article_statetext{
+  font-size: 26rpx;
+  color: #666;
+  margin-left: 10rpx;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  vertical-align: middle;
+}

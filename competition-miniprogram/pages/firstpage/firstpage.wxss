@@ -1,0 +1,42 @@
+/* pages/firstpage/firstpage.wxss */
+.header{
+  background:#d1d0d0;
+  color: rgb(0, 0, 0);
+  line-height:50rpx;
+  flex: 50rpx; /* 不放大不缩小固定100rpx */
+}
+.main-scroll{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; 
+}
+.lianjie{
+  width: 49.5%;    
+  height: 170px;     
+  display: inline-block;    
+  background-color:#FFF8DC;  
+  margin-left: 0.2%;     
+  
+}
+
+.ziti{
+  font-size:15px;         
+  height: 20px;               
+  text-align: center;         
+  line-height: 20px; 
+  color: black;        
+  }
+
+  .tp{
+    width:50%;              
+    height: 75px;          
+    margin-top:10px;  
+    margin-left:45px;      
+    border: 0.1px solid rgb(250, 250, 250);   
+  }
+
+page{
+  color :red;
+}

@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+node_modules/
+target/
+*.iml
+.idea/
+.vscode/
+.settings/
+.project
+.classpath
+*.log
+*.zip
+.DS_Store
+project.private.config.json

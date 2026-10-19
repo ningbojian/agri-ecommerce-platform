@@ -1,0 +1,16 @@
+<scroll-view class='main-scroll' scroll-y style="height: 100%">
+
+
+<view class='kuang '>
+<navigator  wx:for="{{images}}" url='{{item.url}}' hover-class="changestyle" class='lianjie' bindtap='click'>
+<image src="{{item.imageurl}}" class='tp'></image>
+<view class='ziti'>{{item.name}}</view>
+<text>\n</text>
+<text>\n</text>
+<view class='ziti2'>{{item.price}}</view>
+<view class='header'><text>\n</text></view>
+</navigator>
+
+</view>
+
+</scroll-view>

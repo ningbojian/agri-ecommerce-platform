@@ -1,0 +1,11 @@
+<scroll-view class='main-scroll' scroll-y style="height: 100%">
+
+
+
+<view class="chartBg">
+<ec-canvas id="mychart1" canvas-id="mychart1" ec="{{ ec1 }}" >
+</ec-canvas>
+
+</view> 
+
+</scroll-view>

@@ -1,0 +1,66 @@
+/* pages/personal/address/address.wxss */
+page {
+  background-color: rgb(224, 223, 220);
+}
+.rq{
+  border-radius: 8%;
+  background-color: rgb(248, 246, 246);
+}
+.product-name-wrap{
+  margin: 0px 10px;
+  font-size: 14px;
+  color: #404040;
+}
+
+.ui-list-item-info{
+  margin: 5px 0px;
+}
+
+.ui-list-item-info .name{
+  
+  color:#585c64 ;
+  font-size: x-large;
+}
+.ui-list-item-info .address{
+  
+  color:#585c64 ;
+  justify-content:flex-end
+}
+
+.ui-list-item-address{
+  color: #585c64;
+}
+/* button */
+.ui-list-item-info .change{
+  background-color: green;
+  color: white;
+  min-width: 70px;
+  max-width: 70px;
+  max-height: 25px;
+  min-height: 25px;
+  font-size: 10px;
+  border-radius: 10px;
+  float: right;
+}
+.ui-list-item-info .del{
+  color: rgb(65, 65, 65);
+  min-width: 70px;
+  max-width: 70px;
+  max-height: 25px;
+  min-height: 25px;
+  font-size: 10px;
+  border-radius: 10px;
+  float: right;
+  background-color: rgb(243, 105, 105);
+}
+
+
+
+/* 分割线 */
+
+.separate {
+  margin: 5px 0px;
+  height: 2rpx;
+  background-color: #f2f2f2;
+}
+

@@ -1,0 +1,57 @@
+
+
+.header{
+  background:#aaaaaa;
+  color: rgb(0, 0, 0);
+  line-height: 50rpx;
+  flex: 50rpx; /* 不放大不缩小固定100rpx */
+}
+
+.main-scroll{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1;
+  bottom: 0; 
+}
+
+.lianjie{
+  width: 49.5%;    
+  height: 170px;     
+  display: inline-block;    
+  background-color:white;  
+  margin-left: 0.2%;     
+}
+
+.tp{
+   width:100%;              
+   height: 150px;          
+   margin-top:2px;       
+   border: 1px solid rgb(250, 250, 250);   
+ }
+
+.ziti{
+font-size: 12px;         
+height: 20px;               
+text-align: center;         
+line-height: 20px;         
+}
+
+.ziti2{
+  font-size: 12px;         
+height: 20px;               
+text-align: center;         
+line-height: 20px;
+color:red;
+}
+.kuang{
+  background-color: white;
+  width: 100%;
+  height: 185px;
+}
+.tp1{
+  width:70%;              
+   height: 150px;          
+   margin-top:2px;       
+   border: 1px solid rgb(250, 250, 250);  
+}

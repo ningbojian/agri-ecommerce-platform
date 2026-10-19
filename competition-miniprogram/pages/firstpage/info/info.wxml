@@ -1,0 +1,11 @@
+<view>
+  <button bindtap="share" class="register" bindtap='test'>发布</button>
+<view class="header">求助信息汇总</view>
+<view wx:for="{{array}}">
+<view>{{index}} : {{item.descption}}</view>
+<image src="{{item.imgURL}}"></image>
+<view>\n</view>
+<view>\n</view>
+</view>
+
+</view>

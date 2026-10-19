@@ -1,0 +1,28 @@
+
+.text {
+  font-size: 35rpx;
+  color: black;
+  line-height: 25px;
+  font-style: normal;
+  position: absolute;
+  width: 100%;
+  border-bottom: 4rpx solid #FFF;
+  margin-top: 40rpx;
+  position: relative;
+}
+.header{
+  background:#d1d0d0;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  line-height: 60rpx;
+  flex: 50rpx; /* 不放大不缩小固定100rpx */
+}
+
+page{
+  overflow:hidden;
+position:fixed;
+background-image:url('http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcZkysFwY0BmpfM6fPewx.kuCiAwbfnZtT5XO3m7cGumgu6l8V9Vhn*nnNrSsECd1c**lMS8ioWOkbplTDCO7MtU!/b&bo=KQHaAQAAAAABF8M!&rf=viewer_4');
+margin: 0px;
+/*下面的是关键的设置100%显示*/
+background-size: 100% 100%;
+}

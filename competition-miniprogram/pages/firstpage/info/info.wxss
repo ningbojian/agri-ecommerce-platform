@@ -1,0 +1,13 @@
+.register{
+  margin-top: 2rpx;
+}
+.register{
+  background: #fa5151 !important;
+  color: #FFF !important;
+}
+.header{
+  background:#d1d0d0;
+  color: rgb(0, 0, 0);
+  line-height:50rpx;
+  flex: 50rpx; /* 不放大不缩小固定100rpx */
+}

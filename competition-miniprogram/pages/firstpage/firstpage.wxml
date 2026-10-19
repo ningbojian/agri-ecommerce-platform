@@ -1,0 +1,57 @@
+<!--miniprogram/pages/one/one.wxml-->
+
+
+<view >
+	<swiper autoplay interval="2500" indicator-dots="true" indicator-color="red" indicator-active-color="orange">
+<!--autoplay自动轮播 interval时间  indicator-dots指示点  indicator-color指示点颜色  indicator-active-color选中后的点-->
+
+     <swiper-item>
+        <navigator url="/pages/firstpage/zhengce/zhengce" hover-class="changestyle"class="lianjie">   
+        <image src="http://r.photo.store.qq.com/psc?/V52VDqLL0Wdqvt35jdqH3mXU1U3v6wKg/45NBuzDIW489QBoVep5mcR9SiexZ61DQK8LVUCeMxpu9C*2TnJd5Akp1roUdYeA.Arm1PqWnETFL6IamKH3n8OPM95ncDYRubDVGv9YgPXc!/r"/>   
+    </navigator>              
+    </swiper-item>
+
+    <swiper-item >
+        <navigator url="/pages/firstpage/xinwen/xinwen" hover-class="changestyle"class="lianjie">  
+        <image src="http://r.photo.store.qq.com/psc?/V52VDqLL0Wdqvt35jdqH3mXU1U3v6wKg/45NBuzDIW489QBoVep5mcazHoViP3xFLpwEL04Rb79nKkgwOxBUKbaItfoyNQ2tuzXHB1UMKXCjTouqcybdGck6p0el7r6sWVOxlqVzGWAQ!/r" >          
+        </image>
+    </navigator>
+    </swiper-item> 
+
+    <swiper-item >
+        <navigator url="/pages/firstpage/jiuzhu/jiuzhu">
+        <image src="http://r.photo.store.qq.com/psc?/V52VDqLL0Wdqvt35jdqH3mXU1U3v6wKg/45NBuzDIW489QBoVep5mcX4vfv3myOeyYoBkoq0Ebja7FndNfYDNWFgw6qSyafYIic4FHmqeXLP6ijsKjoPQpTeHekXFjaD419I881kQ0EI!/r" >          
+        </image></navigator>
+    </swiper-item>
+</swiper>
+
+<view class='header'> 导航</view>
+<navigator url='../firstpage/agrihelp/agrihelp' hover-class='changestyle' class='lianjie'>
+<image src='http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcU6cieagA3q8PHRZv0omgYkWzLsKqYCVioPi0wMJT*j9w1Lo0fIAldJrr5CW8i4I.*a5abcS306DfPwqBheggL8!/b&bo=yADIAAAAAAADFzI!&rf=viewer_4' class='tp'></image>
+<view class='ziti'>电商助农</view>
+</navigator>
+
+
+<navigator url='../firstpage/tourism/tourism' hover-class='changestyle' class='lianjie'>
+<image src='http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcfa7mW*1RCsCkAejhW.DMgt.Q.ebfu2.JNokPEYfowDfElzqIukBONLDZThG4juz*zbwgdosb3FNVzcyWtgUI6I!/b&bo=yADIAAAAAAADFzI!&rf=viewer_4' class='tp'></image>
+<view class='ziti'>乡村旅游</view>
+</navigator>
+
+<navigator url='../firstpage/childhelp/childhelp' hover-class='changestyle' class='lianjie'>
+<image src='http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcfa7mW*1RCsCkAejhW.DMgtwSqrnI.cdRwX6RI9tk0ErBcbdJYdWzGTrMABCbgrbThzqaVfuRcRseqoJJ6WPBF4!/b&bo=yADIAAAAAAADFzI!&rf=viewer_4' class='tp'></image>
+<view class='ziti'>温暖传递</view>
+</navigator>
+
+<navigator url='../firstpage/info/info' hover-class='changestyle' class='lianjie'>
+<image src='http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mccYeZQf6Jhd6Ga41ebdMegSUFwou8RRlgdGY7U0BnKBYyrhWiCtWgw6sIWrvZUJ*ubf.2R6A5KLqs5yM039qmJc!/b&bo=yADIAAAAAAADFzI!&rf=viewer_4' class='tp'></image>
+<view class='ziti'>发布信息</view>
+</navigator>
+
+</view>
+
+
+
+<!-- <view class="flex-container">
+  <view class="flex-item">flex item 1</view>
+  <view class="flex-item">flex item 2</view>
+</view> -->
