@@ -1,5 +1,10 @@
-// 配置服务器相关信息
-export default{
-    host:'http://localhost:8201',
-    hos:'http://localhost:8202'
+// 服务端地址配置
+// - 微信开发者工具：使用 127.0.0.1，并在「详情 -> 本地设置」勾选“不校验合法域名...”
+// - 真机预览：把 127.0.0.1 改成电脑的局域网 IP（手机与电脑需在同一网络）
+// - 正式发布：改成已在小程序后台配置的 https 域名
+const config = {
+  productBase: 'http://127.0.0.1:8201',
+  userBase: 'http://127.0.0.1:8202'
 }
+
+export default config

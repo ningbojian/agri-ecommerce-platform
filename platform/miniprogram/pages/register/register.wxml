@@ -1,25 +1,28 @@
-
 <view class="container">
   <view class="wrapper">
-    <view class="left-top-sign">LOGIN</view>
+    <view class="left-top-sign">REGISTER</view>
     <view class="welcome">
       欢迎注册！
     </view>
     <view class="input-content">
       <view class="input-item">
         <text class="tit">手机号码</text>
-        <input  type="text" placeholder="请输入手机号码" id="phone" bindinput="handleInput"/>
+        <input type="number" maxlength="11" placeholder="请输入手机号码" id="phone" bindinput="handleInput"/>
+      </view>
+      <view class="input-item">
+        <text class="tit">昵称</text>
+        <input type="text" maxlength="20" placeholder="选填，默认使用手机尾号" id="nickname" bindinput="handleInput"/>
       </view>
       <view class="input-item">
         <text class="tit">密码</text>
-        <input type="password"  placeholder="请输入密码" id="password" bindinput="handleInput"/>
+        <input type="password" placeholder="至少 6 位" id="password" bindinput="handleInput"/>
       </view>
       <view class="input-item">
         <text class="tit">确认密码</text>
-        <input type="password"  placeholder="请再次输入密码" id="repass" bindinput="handleInput"/>
+        <input type="password" placeholder="请再次输入密码" id="repass" bindinput="handleInput"/>
       </view>
     </view>
-    <button class="confirm-btn" bindtap="login" >注册</button>
+    <button class="confirm-btn" bindtap="register" loading="{{submitting}}" disabled="{{submitting}}">注册</button>
+    <view class="forget-section" bindtap="toLogin">已有账号，返回登录</view>
   </view>
 </view>
-

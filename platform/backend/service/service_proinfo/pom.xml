@@ -10,13 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>service_proinfo</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>easyexcel</artifactId>
-            <version>2.1.1</version>
-        </dependency>
-    </dependencies>
+    <version>1.0.0</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

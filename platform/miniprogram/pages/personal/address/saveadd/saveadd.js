@@ -1,126 +1,104 @@
 // pages/personal/address/saveadd/saveadd.js
-import request from '../../../../utils/req'
+import request from '../../../../utils/request'
+import auth from '../../../../utils/auth'
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    name:'',
-    tel:'',
-    address:'',
-    s:'',
-    userinfo:{},
-    id:''
+    id: null,
+    name: '',
+    tel: '',
+    address: '',
+    isDefault: false,
+    loading: false,
+    submitting: false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-  handleInputName(e){
-    this.setData({
-      name:e.detail.value
-    })
-  },
-  handleInputAddress(e){
-    this.setData({
-      address:e.detail.value
-    })
-  },
-  handleInputTel(e){
-    this.setData({
-      tel:e.detail.value
-    })
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    let userinfo=wx.getStorageSync('userInfo')
-    let va= wx.getStorageSync('upadd')
-    this.setData({
-      s:va,
-      userinfo
-    })
-  if(va!=''){
-    let add=wx.getStorageSync('addList')
-    this.setData({
-      name:add[va]['addname'],
-      tel:add[va]['addtel'],
-      address:add[va]['address'],
-      id:add[va]['id']
-    })
-  }
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-  submit:async function(){
-    let result
-    if(this.data.s!=null){
-      console.log(this.data.id)
-      result=await request(`/admin/address/update/`,{
-        userid:this.data.userinfo['id'],
-        addtel:this.data.tel,
-        addname:this.data.name,
-        address:this.data.address,
-        id:this.data.id
-      })
-    }
-    if(this.data.s==''){
-      result=await request(`/admin/address/save/`,{
-        userid:this.data.userinfo['id'],
-        addtel:this.data.tel,
-        addname:this.data.name,
-        address:this.data.address
-      })
-    }
-    console.log(result)
-    if(result.code==200){
-      wx.navigateTo({
-        url: '../address',
-      })
+  onLoad(options) {
+    if (options.id) {
+      this.setData({ id: Number(options.id) })
+      this.loadAddress()
     }
   },
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
 
+  async loadAddress() {
+    if (!auth.requireLogin()) {
+      return
+    }
+    this.setData({ loading: true })
+    try {
+      const address = await request(`/app/address/${this.data.id}`, {
+        base: 'user',
+        loading: true
+      })
+      this.setData({
+        name: address.addname,
+        tel: address.addtel,
+        address: address.address,
+        isDefault: address.isDefault === 1,
+        loading: false
+      })
+    } catch (e) {
+      this.setData({ loading: false })
+    }
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  handleInputName(e) {
+    this.setData({ name: e.detail.value })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  handleInputTel(e) {
+    this.setData({ tel: e.detail.value })
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  handleInputAddress(e) {
+    this.setData({ address: e.detail.value })
+  },
 
+  toggleDefault(e) {
+    this.setData({ isDefault: e.detail.value })
+  },
+
+  async submit() {
+    const { id, name, tel, address, isDefault, submitting } = this.data
+    if (submitting) {
+      return
+    }
+    if (!name.trim()) {
+      wx.showToast({ title: '请输入收货人姓名', icon: 'none' })
+      return
+    }
+    if (!/^1[3-9]\d{9}$/.test(tel.trim()) && !/^0\d{2,3}-?\d{7,8}$/.test(tel.trim())) {
+      wx.showToast({ title: '请输入正确的联系电话', icon: 'none' })
+      return
+    }
+    if (!address.trim()) {
+      wx.showToast({ title: '请输入收货地址', icon: 'none' })
+      return
+    }
+
+    this.setData({ submitting: true })
+    try {
+      const body = {
+        addname: name.trim(),
+        addtel: tel.trim(),
+        address: address.trim(),
+        isDefault
+      }
+      if (id) {
+        body.id = id
+      }
+      await request(id ? '/app/address/update' : '/app/address/save', {
+        base: 'user',
+        method: 'POST',
+        data: body,
+        loading: true
+      })
+      wx.showToast({ title: '已保存', icon: 'success' })
+      setTimeout(() => wx.navigateBack(), 400)
+    } catch (e) {
+      // request 已提示错误
+    } finally {
+      this.setData({ submitting: false })
+    }
   }
 })

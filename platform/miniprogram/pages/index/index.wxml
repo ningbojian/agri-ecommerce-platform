@@ -1,69 +1,43 @@
-<image class='background' src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcY.s8ufOHF.BkYSIAdKoeo4adeQdADNNaKtbKsvGN77XBcKdqSGh9sMYTep6tkS.1dSRXJd4YKaNr6BNtWIR460!/b&bo=PgHCAQAAAAACF88!&rf=viewer_4" mode="aspectFill"></image>
-<view>
-  <view class="sort">
-    <view class="txt" bindtap="sort" id="1">
-      <image class="im" src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcVBtRnaCnkxqjl0B*1M6AmsnxORk2tNMNjqewFLgSATz1YKM07GFzmuzdoc2qzer9nV5ZYS0Rn0Y7m3QjNoXJmI!/b&bo=WAJYAgAAAAABFzA!&rf=viewer_4"/>
-      <view class="t">
-        <text>水果</text>
-      </view>
+<!--pages/index/index.wxml-->
+<view class="page">
+  <scroll-view class="category-bar" scroll-x="true" enable-flex="true">
+    <view class="category-item {{activeCategoryId === 0 ? 'active' : ''}}" data-id="0" bindtap="selectCategory">
+      全部
     </view>
-    <view class="txt" bindtap="sort" id="2">
-      <image class="im" src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mccO0g2dF8LbHI1CSbMLQYZEpXONvLiknX1Khc75UWUmv5YHlHrd3f7*pJWldqmJ44SfBHbVB.GEWmzc7nB*hxqA!/b&bo=IAMgAwAAAAABFzA!&rf=viewer_4"/>
-      <view class="t">
-        <text>蔬菜</text>
-      </view>
+    <view
+      wx:for="{{categories}}"
+      wx:key="id"
+      class="category-item {{activeCategoryId === item.id ? 'active' : ''}}"
+      data-id="{{item.id}}"
+      bindtap="selectCategory"
+    >
+      {{item.name}}
     </view>
-    <view class="txt" bindtap="sort" id="3">
-      <!-- <text class="iconfont icon-lingshi_roushi" style="color: rgb(128, 47, 0);font-size: 60rpx;"></text> -->
-      <image class="im" src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcVBtRnaCnkxqjl0B*1M6AmuK0sPyFNSMvlXjsDqwDCyOCegqB7wjGz75DS6AfdXtRP.HCp*1Y4oD2xjC3vQFt*8!/b&bo=YgKWAQAAAAABF8c!&rf=viewer_4"/>
-      <view class="t">
-        <text>肉类</text>
+  </scroll-view>
+
+  <view wx:if="{{error}}" class="state">
+    <text>{{error}}</text>
+    <button class="retry" size="mini" bindtap="retry">重试</button>
+  </view>
+
+  <view class="list">
+    <view class="list_item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="click">
+      <view class="img">
+        <image src="{{item.picurl}}" mode="aspectFill" lazy-load="true" />
       </view>
-    </view>
-    <view class="txt" bindtap="sort" id="4">
-      <image class="im" src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcUDqXUbb7ATY9X7D8.yDHr9pD*WOkmtC0oWyMkuTVXgZqfMIaph41xBfW7LgfSqBNVo3b1A5jE21mWrpDefLxKk!/b&bo=KAJyAQAAAAABF2k!&rf=viewer_4"/>
-      <view class="t">
-        <text>粮油</text>
-      </view>
-    </view>
-    <view class="txt" bindtap="sort" id="5">
-      <image class="im" src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcUDqXUbb7ATY9X7D8.yDHr90YbJkyD.WI81hYcscX8cfS9OFFIQdXd.C6P8soMLzhK7R3BoOmTrcNZnMUbkCHrU!/b&bo=YgIvAgAAAAABF30!&rf=viewer_4"/>
-      <view class="t">
-        <text>面点</text>
-      </view>
-    </view>
-    <view class="txt" bindtap="sort" id="6">
-      <image class="im" src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcUDqXUbb7ATY9X7D8.yDHr.TxCONa9SbKYmCUAUQ54ZB0b3rPk8Tqx4J4wDYgHpZmrh5hYVwx2LqkcEXT4.H0TM!/b&bo=6AG9AgAAAAABF2Y!&rf=viewer_4"/>
-      <view class="t">
-        <text>冷链</text>
-      </view>
-    </view>
-    <view class="txt" bindtap="sort" id="7">
-      <image class="im" src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcUDqXUbb7ATY9X7D8.yDHr.WlW3Li..E4j6halzqSwk8N3uS0LksbNy9m6QvqqMnqkGgx5bkpjWQ9vD.Yf5c0II!/b&bo=IAMgAwAAAAABFzA!&rf=viewer_4"/>
-      <view class="t">
-        <text>零食</text>
-      </view>
-    </view>
-    <view class="txt" bindtap="sort" id="8">
-      <image class="im" src="http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcVBtRnaCnkxqjl0B*1M6Amt5yVZPCYA8XYltOHF6mZHwYe5fPe*jhHMhBdIxt0Kj0yoH5qpnncWsJj9Xe*NYQVo!/b&bo=mgGaAQAAAAABFzA!&rf=viewer_4"/>
-      <view class="t">
-        <text>酒水</text>
+      <view class="info">
+        <view class="title">{{item.proname}}</view>
+        <view class="price">￥{{item.price}} / {{item.unit || '件'}}</view>
+        <view class="descr">{{item.descript}}</view>
+        <view class="meta">
+          <text>库存 {{item.stock}}</text>
+          <text>{{item.delivery}}</text>
+        </view>
       </view>
     </view>
   </view>
-  <view class='list'>
-    <block wx:for="{{list}}" wx:key="proname" wx:for-index="index">
-    <view  class="list_item" bindtap="click" id="{{index}}">
-      <view class='img' id="{{index}}">
-          <image src="{{list[index]['picurl']}}"/>
-        </view>
-        <view class='info' id="{{index}}">
-          <view class='title' id="{{index}}">{{list[index]['proname']}}</view>
-          <view class='price' id="{{index}}">￥{{list[index]['price']}}</view>
-          <view class="descr" id="{{index}}">{{list[index]['descript']}}</view>
-        </view>
-        <view class='clear' id="{{index}}"></view>
-    </view>
-    </block>
-  </view>
+
+  <view wx:if="{{!loading && !list.length && !error}}" class="state">暂无商品</view>
+  <view wx:if="{{loading}}" class="state">加载中...</view>
+  <view wx:if="{{!loading && !hasMore && list.length}}" class="state">没有更多了</view>
 </view>

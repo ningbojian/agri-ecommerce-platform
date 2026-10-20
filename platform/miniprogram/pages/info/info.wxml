@@ -1,20 +1,32 @@
-<!-- 轮播图开始  -->
-<swiper class="swiper" indicator-dots="true" autoplay="true" interval="4000" duration="1000">  
-  <block wx:for="{{swiper}}" wx:for-index="index">  
-    <swiper-item>  
-      <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
-    </swiper-item>  
-  </block>  
-</swiper>  
-<!-- 轮播图结束  -->
-<view class='animal_info' wx:for="{{myarray}}">
-    <view class='animal_photo'>
-    <image src='http://m.qpic.cn/psc?/V54DWESa0sRAoU0aTodf0ZH2Ht0OfYHO/45NBuzDIW489QBoVep5mcTIhTPvessyPFxyFSHQzd2d.rnWPBgAVc9XdDIMQpOVnigQMyS3IUaDMM3NeQuDT0z.7wcGVyDTrvUEt98ptsYU!/b&bo=gwIvAgAAAAADF54!&rf=viewer_4'></image>
-    <text class='animal_nikename'>乡村宝藏官方</text>
-    </view>
-
-    <text class='animal_title'>{{item.describe}}</text>
-    <image src='{{item.picture_url}}' class='animal_img'></image>
-    <text class='animal_intro'>{{item.brief_introduction}}</text>
-
+<!--pages/info/info.wxml-->
+<view class="page">
+  <view class="header">
+    <view class="header-title">助农资讯</view>
+    <view class="header-sub">了解农产品上行、冷链与平台规则</view>
   </view>
+
+  <view wx:if="{{loading}}" class="state">加载中...</view>
+  <view wx:elif="{{error}}" class="state">
+    <text>{{error}}</text>
+    <button class="retry" size="mini" bindtap="retry">重试</button>
+  </view>
+  <view wx:elif="{{!list.length}}" class="state">暂无资讯</view>
+
+  <view
+    wx:for="{{list}}"
+    wx:key="id"
+    class="article-card"
+    data-id="{{item.id}}"
+    bindtap="openDetail"
+  >
+    <image class="cover" src="{{item.coverUrl}}" mode="aspectFill" lazy-load="true"></image>
+    <view class="content">
+      <view class="title">{{item.title}}</view>
+      <view class="summary">{{item.summary}}</view>
+      <view class="meta">
+        <text>{{item.author}}</text>
+        <text>{{item.publishTime}}</text>
+      </view>
+    </view>
+  </view>
+</view>

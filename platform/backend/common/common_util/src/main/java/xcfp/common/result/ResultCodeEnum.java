@@ -32,7 +32,14 @@ public enum ResultCodeEnum {
     //LOGIN_ERROR( 23005, "登录失败"),
 
     PAY_RUN(220, "支付中"),
+    ACCOUNT_OR_PASSWORD_ERROR(221, "手机号或密码错误"),
+    ACCOUNT_DISABLED(222, "账号已被禁用"),
     CANCEL_ORDER_FAIL(225, "取消订单失败"),
+
+    DATA_NOT_FOUND(404, "数据不存在"),
+    STOCK_NOT_ENOUGH(4201, "库存不足"),
+    ORDER_STATE_ERROR(4202, "订单状态不允许该操作"),
+    PRODUCT_UNAVAILABLE(4203, "商品已下架或不存在"),
 
     SIGN_ERROR(300, "签名错误"),
     ;

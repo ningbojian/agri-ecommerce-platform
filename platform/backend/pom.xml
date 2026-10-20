@@ -24,10 +24,10 @@
         <cloud.version>Hoxton.RELEASE</cloud.version>
         <alibaba.version>2.2.0.RELEASE</alibaba.version>
         <mybatis-plus.version>3.3.1</mybatis-plus.version>
-        <mysql.version>5.1.46</mysql.version>
-        <swagger.version>2.7.0</swagger.version>
-        <jwt.version>0.7.0</jwt.version>
-        <fastjson.version>1.2.29</fastjson.version>
+        <mysql.version>8.0.33</mysql.version>
+        <swagger.version>2.9.2</swagger.version>
+        <jwt.version>0.9.1</jwt.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <httpclient.version>4.5.1</httpclient.version>
         <easyexcel.version>2.2.0-beta2</easyexcel.version>
         <aliyun.version>4.1.1</aliyun.version>

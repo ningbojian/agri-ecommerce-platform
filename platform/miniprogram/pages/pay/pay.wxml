@@ -1,29 +1,55 @@
 <!--pages/pay/pay.wxml-->
-<view class="ui-list-item-info">
-<text decode="{{true}}" space="{{true}}" class="name">&nbsp;&nbsp;&nbsp;姓名：{{addList[addidx]['addname']}}</text>
-<view class="address">
-  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text> 联系方式：{{addList[addidx]['addtel']}}
-</view>
-<view class="ui-list-item-address">
-  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text>
-  收货地址：{{addList[addidx]['address']}}
-</view>
-<button  class="choose" bindtap="choose">选择地址</button>
-</view>
+<view wx:if="{{loading}}" class="state">加载中...</view>
+<view wx:elif="{{error}}" class="state">{{error}}</view>
+<view wx:else class="pay-page">
+  <!-- 收货地址 -->
+  <view class="card address-card" bindtap="chooseAddress">
+    <block wx:if="{{address}}">
+      <view class="address-head">
+        <text class="name">{{address.addname}}</text>
+        <text class="tel">{{address.addtel}}</text>
+        <text class="default" wx:if="{{address.isDefault === 1}}">默认</text>
+      </view>
+      <view class="address-text">{{address.address}}</view>
+    </block>
+    <view wx:else class="address-empty">
+      还没有收货地址，点击添加
+    </view>
+    <text class="arrow">›</text>
+  </view>
 
-        <view class="orderListDetails">
-          <view class="productImg">
-            <image src="../../static/1.png" background-size="cover"></image>
-          </view>
-          <view class="productInfo">
-            <view class="productTitle">{{pro['proname']}}</view>
-            <view class="productTitle">商户:{{pro['supname']}}</view>
-            <view class="danjia">单价：￥{{pro['price']}}</view>
-            <view class="danjia">数量：{{num}}</view>
-            <view class="price">价格：￥{{pay}}</view>
-          </view>
-        </view>
-<view>
-<button  class="bt" bindtap="order2">确定购买</button>
-</view>
+  <!-- 商品 -->
+  <view class="card order-card">
+    <image class="product-img" src="{{pro.picurl}}" mode="aspectFill"></image>
+    <view class="product-info">
+      <view class="product-title">{{pro.proname}}</view>
+      <view class="product-sub">商户：{{pro.supname}}</view>
+      <view class="product-sub">单价：￥{{pro.price}} / {{pro.unit || '件'}}</view>
+      <view class="product-sub">数量：{{num}}</view>
+    </view>
+  </view>
 
+  <!-- 金额 -->
+  <view class="card summary">
+    <view class="summary-row">
+      <text>商品金额</text>
+      <text>￥{{pay}}</text>
+    </view>
+    <view class="summary-row">
+      <text>运费</text>
+      <text>￥0.00</text>
+    </view>
+    <view class="summary-row total">
+      <text>应付合计</text>
+      <text>￥{{pay}}</text>
+    </view>
+  </view>
+
+  <view class="tip">演示环境使用模拟支付，提交后订单直接变为“待发货”。</view>
+
+  <view class="footer">
+    <button class="submit" bindtap="submit" loading="{{submitting}}" disabled="{{submitting}}">
+      {{submitting ? '处理中...' : '提交订单并支付'}}
+    </button>
+  </view>
+</view>

@@ -1,22 +1,78 @@
-<!--pages/personal/address/address.wxml-->
-<view  class="orderDetails" wx:for="{{orderList}}" wx:key="id" wx:for-index="index">
-        <view class="orderListTitle">
-          <text class="orderStatus">订单编号{{orderList[index]['orderid']}}</text>
-        </view>
-        <view class="orderListDetails">
-          <view class="productImg">
-            <image src="{{orderList[index]['picurl']}}" background-size="cover"/>
-          </view>
-          <view class="productInfo">
-            <view class="productTitle">{{orderList[index]['proname']}}</view>
-            <view class="productTitle">商户:{{orderList[index]['supname']}}</view>
-          </view>
-        </view>
-        <view class="productCount">
-          <view>
-            <text>价格：￥{{orderList[index]['pay']}}</text>
-          </view>
-        </view>
+<!--pages/personal/order/order.wxml-->
+<view class="page">
+  <scroll-view class="tabs" scroll-x="true" enable-flex="true">
+    <view
+      wx:for="{{tabs}}"
+      wx:key="label"
+      class="tab {{activeState === item.value ? 'active' : ''}}"
+      data-state="{{item.value}}"
+      bindtap="switchTab"
+    >{{item.label}}</view>
+  </scroll-view>
+
+  <view wx:if="{{error}}" class="state">
+    <text>{{error}}</text>
+    <button class="retry" size="mini" bindtap="retry">重试</button>
+  </view>
+
+  <view
+    wx:for="{{list}}"
+    wx:key="orderid"
+    class="order-card"
+    data-orderid="{{item.orderid}}"
+    bindtap="openDetail"
+  >
+    <view class="order-head">
+      <text class="order-no">订单号 {{item.orderid}}</text>
+      <text class="status status-{{item.state}}">{{item.stateText}}</text>
+    </view>
+
+    <view class="order-body">
+      <image class="product-img" src="{{item.picurl}}" mode="aspectFill"></image>
+      <view class="product-info">
+        <view class="product-title">{{item.proname}}</view>
+        <view class="product-sub">商户：{{item.supname}}</view>
+        <view class="product-sub">单价：￥{{item.price}} × {{item.num}}</view>
       </view>
+      <view class="amount">￥{{item.pay}}</view>
+    </view>
 
+    <view class="order-foot" catchtap="noop">
+      <text class="time">{{item.createTime}}</text>
+      <view class="actions">
+        <button
+          wx:if="{{item.state === 'created'}}"
+          class="btn danger"
+          size="mini"
+          data-orderid="{{item.orderid}}"
+          catchtap="cancel"
+        >取消订单</button>
+        <button
+          wx:if="{{item.state === 'created'}}"
+          class="btn primary"
+          size="mini"
+          data-orderid="{{item.orderid}}"
+          catchtap="pay"
+        >去支付</button>
+        <button
+          wx:if="{{item.state === 'shipped'}}"
+          class="btn primary"
+          size="mini"
+          data-orderid="{{item.orderid}}"
+          catchtap="confirm"
+        >确认收货</button>
+        <button
+          wx:if="{{item.state === 'completed' || item.state === 'cancelled'}}"
+          class="btn"
+          size="mini"
+          data-orderid="{{item.orderid}}"
+          catchtap="openDetail"
+        >查看详情</button>
+      </view>
+    </view>
+  </view>
 
+  <view wx:if="{{!loading && !list.length && !error}}" class="state">暂无订单</view>
+  <view wx:if="{{loading}}" class="state">加载中...</view>
+  <view wx:if="{{!loading && !hasMore && list.length}}" class="state">没有更多了</view>
+</view>

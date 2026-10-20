@@ -4,28 +4,34 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @TableName("product_info")
 @Data
 public class ProductInfo {
   @TableId(type = IdType.AUTO)
-  private long id;
+  private Long id;
   private String proname;
-  private long supid;
+  private Long supid;
   private String supname;
+  private Long categoryId;
   private String delivery;
-  private double price;
-  private long publishStatus;
-  private long auditStatus;
+  private BigDecimal price;
+  private Integer stock;
+  private Integer sales;
+  private String unit;
+  private Integer publishStatus;
+  private Integer auditStatus;
   private String descript;
   private String picurl;
   private String sort;
-  private java.sql.Timestamp createTime;
-  private java.sql.Timestamp updateTime;
+  private LocalDateTime createTime;
+  private LocalDateTime updateTime;
   @TableLogic
-  private long isDelete;
-
-
-
+  @JsonIgnore
+  private Integer isDelete;
 }

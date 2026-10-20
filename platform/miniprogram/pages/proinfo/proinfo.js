@@ -1,113 +1,108 @@
 // pages/proinfo/proinfo.js
+import request from '../../utils/request'
+import auth from '../../utils/auth'
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    num:1,
+    id: null,
+    pro: null,
+    num: 1,
     minusStatus: 'disabled',
-    pro:'',
-    bannerList:[1,2,3]
+    loading: true,
+    error: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad(options) {
+    const id = Number(options.id)
+    if (!id) {
+      this.setData({ loading: false, error: '缺少商品参数' })
+      return
+    }
+    this.setData({ id })
+    this.loadProduct()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  async loadProduct() {
+    this.setData({ loading: true, error: '' })
+    try {
+      const pro = await request(`/app/product/${this.data.id}`, { silent: true })
+      this.setData({ pro, loading: false })
+    } catch (e) {
+      this.setData({ loading: false, error: e.message || '商品加载失败' })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    let pro=wx.getStorageSync('pro')
+  bindMinus() {
+    const num = this.data.num
+    if (num <= 1) {
+      return
+    }
+    const next = num - 1
     this.setData({
-      pro
+      num: next,
+      minusStatus: next <= 1 ? 'disabled' : 'normal'
     })
   },
-  bindMinus: function() {
-		var num = this.data.num;
-		// 如果大于1时，才可以减
-		if (num > 1) {
-			num --;
-		}
-		// 只有大于一件的时候，才能normal状态，否则disable状态
-		var minusStatus = num <= 1 ? 'disabled' : 'normal';
-		// 将数值与状态写回
-		this.setData({
-			num: num,
-			minusStatus: minusStatus
-		});
-	},
-	/* 点击加号 */
-	bindPlus: function() {
-		var num = this.data.num;
-		// 不作过多考虑自增1
-		num ++;
-		// 只有大于一件的时候，才能normal状态，否则disable状态
-		var minusStatus = num < 1 ? 'disabled' : 'normal';
-		// 将数值与状态写回
-		this.setData({
-			num: num,
-			minusStatus: minusStatus
-		});
-	},
-	/* 输入框事件 */
-	bindManual: function(e) {
-		var num = e.detail.value;
-		// 将数值与状态写回
-		this.setData({
-			num: num
-		});
-	},
-  pay(e){
-    wx.setStorageSync('num', this.data.num)
-    wx.setStorageSync('flag','')
+
+  bindPlus() {
+    const pro = this.data.pro
+    if (!pro) {
+      return
+    }
+    const max = Math.min(pro.stock || 0, 99)
+    if (this.data.num >= max) {
+      wx.showToast({ title: max ? '已达可购买上限' : '库存不足', icon: 'none' })
+      return
+    }
+    this.setData({
+      num: this.data.num + 1,
+      minusStatus: 'normal'
+    })
+  },
+
+  bindManual(e) {
+    const pro = this.data.pro
+    const max = pro ? Math.min(pro.stock || 0, 99) : 1
+    let num = parseInt(e.detail.value, 10)
+    if (isNaN(num) || num < 1) {
+      num = 1
+    }
+    if (num > max) {
+      num = max || 1
+    }
+    this.setData({
+      num,
+      minusStatus: num <= 1 ? 'disabled' : 'normal'
+    })
+  },
+
+  pay() {
+    const pro = this.data.pro
+    if (!pro) {
+      return
+    }
+    if (!auth.requireLogin()) {
+      return
+    }
+    if (!pro.stock || pro.stock < this.data.num) {
+      wx.showToast({ title: '库存不足', icon: 'none' })
+      return
+    }
     wx.navigateTo({
-      url: '/pages/pay/pay',
+      url: `/pages/pay/pay?productId=${pro.id}&num=${this.data.num}`
     })
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
+  onPullDownRefresh: async function () {
+    await this.loadProduct()
+    wx.stopPullDownRefresh()
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onShareAppMessage() {
+    const pro = this.data.pro
+    return {
+      title: pro ? pro.proname : '乡村探宝',
+      path: `/pages/proinfo/proinfo?id=${this.data.id}`
+    }
   }
 })

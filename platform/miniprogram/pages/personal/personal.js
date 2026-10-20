@@ -1,132 +1,87 @@
 // pages/personal/personal.js
-let startY=0;//手指启示坐标
-let moveY=0;//手指移动坐标
-let movuDistance=0;//手指移动距离
+import request from '../../utils/request'
+import auth from '../../utils/auth'
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    userInfo:{}
+    userInfo: null,
+    loggedIn: false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
+  onShow() {
+    this.refreshProfile()
   },
-  toLogin(){
-    if(this.data.userInfo.tel){
+
+  async refreshProfile() {
+    if (!auth.isLoggedIn()) {
+      this.setData({ loggedIn: false, userInfo: null })
       return
     }
-    wx.navigateTo({
-      url:"/pages/login/login"
-    })
-  },
-  click1(){
-    wx.setStorageSync('state', '')
-    wx.navigateTo({
-      url: './order/order',
-    })
-  },
-  click2(){
-    wx.setStorageSync('state', '0')
-    wx.navigateTo({
-      url: './order/order',
-    })
-  },
-  click3(){
-    wx.setStorageSync('state', '1')
-    wx.navigateTo({
-      url: './order/order',
-    })
-  },
-  click4(){
-    wx.setStorageSync('state', '2')
-    wx.navigateTo({
-      url: './order/order',
-    })
-  },
-  handleTouchStart(event){
-    this.setData({
-      coverTransition:''
-    })
-    //获取手指启示坐标
-    startY=event.touches[0].clientY;
-  },
-  handleTouchMove(event){
-    //获取手指移动坐标
-    moveY=event.touches[0].clientY;
-    movuDistance=moveY-startY;
-    if(movuDistance<=0){
-      return;
+
+    // 先用本地缓存渲染，再向后端刷新
+    this.setData({ loggedIn: true, userInfo: auth.getUser() })
+    try {
+      const user = await request('/app/user/profile', { base: 'user', silent: true })
+      auth.updateUser(user)
+      this.setData({ userInfo: user })
+      const app = getApp()
+      if (app) {
+        app.globalData.userInfo = user
+      }
+    } catch (e) {
+      if (!auth.isLoggedIn()) {
+        this.setData({ loggedIn: false, userInfo: null })
+      }
     }
-    if(movuDistance>=80){
-      movuDistance=80;
+  },
+
+  toLogin() {
+    if (this.data.loggedIn) {
+      return
     }
-    // 动态更新coverTransform的状态值
-    this.setData({
-      coverTransform:`translateY(${movuDistance}rpx)`
+    wx.navigateTo({ url: '/pages/login/login' })
+  },
+
+  goOrders(e) {
+    if (!auth.requireLogin()) {
+      return
+    }
+    const state = e.currentTarget.dataset.state || ''
+    wx.navigateTo({
+      url: `/pages/personal/order/order?state=${state}`
     })
   },
-  handleTouchEnd(){
-    this.setData({
-      coverTransform:`translateY(0rpx)`,
-      coverTransition:'transform 1s linear'
+
+  goAddress() {
+    if (!auth.requireLogin()) {
+      return
+    }
+    wx.navigateTo({ url: '/pages/personal/address/address' })
+  },
+
+  goFeedback() {
+    if (!auth.requireLogin()) {
+      return
+    }
+    wx.navigateTo({ url: '/pages/personal/feedback/feedback' })
+  },
+
+  logout() {
+    wx.showModal({
+      title: '退出登录',
+      content: '确定要退出当前账号吗？',
+      success: (res) => {
+        if (!res.confirm) {
+          return
+        }
+        auth.clear()
+        const app = getApp()
+        if (app) {
+          app.globalData.userInfo = null
+        }
+        this.setData({ loggedIn: false, userInfo: null })
+        wx.showToast({ title: '已退出登录', icon: 'none' })
+      }
     })
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    let va=wx.getStorageSync('userInfo')
-    this.setData({
-      userInfo:va
-    })
-    wx.setStorageSync('flag',-1)
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

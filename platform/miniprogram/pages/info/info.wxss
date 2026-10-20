@@ -1,85 +1,76 @@
-.swiper {
-  height: 400rpx;
-  width: 100%;
+page {
+  background: #f5f1e8;
 }
-.swiper image {
-  height: 100%;
-  width: 100%;
-}
-/* 轮播图样式结束 */
-.animal_info{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 12px;
-  border-top: 1px solid #ededed;
-  /* border-bottom: 1px solid #ededed; */
-  padding-top: 10px;
-  /* background-color: #fff; */
- border-radius: 5em;
- background-color: rgb(230, 228, 228);
 
+.page {
+  min-height: 100vh;
+  padding-bottom: 30rpx;
 }
-.animal_photo{
+
+.header {
+  background: #ffff99;
+  padding: 40rpx 30rpx;
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #33402f;
+}
+
+.header-sub {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #6d6a56;
+}
+
+.article-card {
+  margin: 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.cover {
   width: 100%;
-  margin-bottom: 10px;
-   margin-left: 6px;
+  height: 300rpx;
+  background: #eee;
 }
-.animal_title{
-  font-weight: bold;
+
+.content {
+  padding: 20rpx;
+}
+
+.title {
   font-size: 32rpx;
-  line-height: 36rpx;
+  font-weight: 600;
+  color: #222;
+}
+
+.summary {
+  margin-top: 12rpx;
+  color: #666;
+  font-size: 25rpx;
+  line-height: 1.6;
+}
+
+.meta {
+  margin-top: 16rpx;
+  display: flex;
+  justify-content: space-between;
+  color: #aaa;
+  font-size: 21rpx;
+}
+
+.state {
+  padding: 80rpx 0;
   text-align: center;
-  color: #444;
-  vertical-align: middle;
-  margin-bottom: 10px;
-}
-.animal_photo image{
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 100rpx;
-  vertical-align: middle;
-}
-.animal_nikename{
-  /* font-weight: bold; */
-  margin-left: 10px;
-  vertical-align: middle;
+  color: #999;
   font-size: 26rpx;
 }
- 
-.animal_img {
-  width: 100%;
-  margin: auto 0;
- 
-}
-.animal_intro{
- 
-  font-size: 28rpx;
-  letter-spacing: 2rpx;
-  color: #666;
-  line-height: 40rpx;
-  margin-bottom: 20rpx;
-  margin-left: 20rpx;
-  /* text-align:justify; */
-  
- 
-}
-.article_state{
-  width: 100%;
-  flex-direction: row;
-  margin-bottom: 20rpx;
-}
-.article_stateimg{
-  width: 26rpx;
-  height: 26rpx;
-  vertical-align: middle;
-  margin-left: 8px;
-}
-.article_statetext{
-  font-size: 26rpx;
-  color: #666;
-  margin-left: 10rpx;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  vertical-align: middle;
+
+.retry {
+  margin-top: 16rpx;
+  background: #2f7b27;
+  color: #fff;
 }

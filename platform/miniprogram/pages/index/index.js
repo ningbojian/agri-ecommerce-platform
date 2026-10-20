@@ -1,87 +1,114 @@
 // pages/index/index.js
 import request from '../../utils/request'
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    current:1,
-    limit:10,
-    sort:'',
-    list:{}
+    categories: [],
+    activeCategoryId: 0,
+    list: [],
+    current: 1,
+    limit: 10,
+    total: 0,
+    loading: false,
+    hasMore: true,
+    error: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad() {
+    this.loadCategories()
+    this.loadProducts(true)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  async loadCategories() {
+    try {
+      const categories = await request('/app/product/categories', { silent: true })
+      this.setData({ categories: categories || [] })
+    } catch (e) {
+      // 分类加载失败不阻塞商品列表
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: async function () {
-    let date= await request(`/admin/pro/productinfo/findPage/${this.data.current}/${this.data.limit}`,{
-      sort:this.data.sort
-    })
+  async loadProducts(reset) {
+    if (this.data.loading) {
+      return
+    }
+    if (!reset && !this.data.hasMore) {
+      return
+    }
+
+    const current = reset ? 1 : this.data.current
+    const query = { current, limit: this.data.limit }
+    if (this.data.activeCategoryId) {
+      query.categoryId = this.data.activeCategoryId
+    }
+
     this.setData({
-      list:date.data.records
+      loading: true,
+      error: reset ? '' : this.data.error
     })
+
+    try {
+      const page = await request('/app/product/page', { data: query, silent: true })
+      const records = (page && page.records) || []
+      const total = (page && page.total) || 0
+      const list = reset ? records : this.data.list.concat(records)
+      this.setData({
+        list,
+        total,
+        current: current + 1,
+        hasMore: list.length < total,
+        loading: false
+      })
+    } catch (e) {
+      this.setData({
+        loading: false,
+        error: e.message || '商品加载失败'
+      })
+    }
   },
-  click(e){
-    wx.setStorageSync('pro',this.data.list[e.target.id])
-    // console.log(this.data.list[e.target.id]['id'])
+
+  selectCategory(e) {
+    const id = Number(e.currentTarget.dataset.id)
+    if (id === this.data.activeCategoryId) {
+      return
+    }
+    this.setData({
+      activeCategoryId: id,
+      list: [],
+      current: 1,
+      total: 0,
+      hasMore: true
+    })
+    this.loadProducts(true)
+  },
+
+  click(e) {
+    const id = e.currentTarget.dataset.id
+    if (!id) {
+      return
+    }
     wx.navigateTo({
-      url: '/pages/proinfo/proinfo',
+      url: `/pages/proinfo/proinfo?id=${id}`
     })
   },
-  sort(e){
-    this.setData({
-      sort:e.currentTarget.id
-    })
-    this.onShow()
-  },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
+  retry() {
+    this.loadProducts(true)
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  onPullDownRefresh: async function () {
+    await Promise.all([this.loadCategories(), this.loadProducts(true)])
+    wx.stopPullDownRefresh()
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  onReachBottom() {
+    this.loadProducts(false)
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onShareAppMessage() {
+    return {
+      title: '乡村探宝 · 助农好物',
+      path: '/pages/index/index'
+    }
   }
 })

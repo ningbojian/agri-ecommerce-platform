@@ -1,12 +1,22 @@
-<view class="rq">
-<view class="product-name-wrap">
-<view class="ui-list-item-info">
-<view class="address">
-  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text> 请输入姓名：<input value="{{name}}" bindinput="handleInputName"/>
-  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text> 请输入联系方式：<input value="{{tel}}" bindinput="handleInputTel"/>
-  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text> 请输入收货地址：<input value="{{address}}" bindinput="handleInputAddress"/>
+<view class="page">
+  <view class="form-card">
+    <view class="form-item">
+      <text class="label">收货人</text>
+      <input class="input" value="{{name}}" maxlength="20" placeholder="请输入姓名" bindinput="handleInputName"/>
+    </view>
+    <view class="form-item">
+      <text class="label">联系电话</text>
+      <input class="input" type="text" value="{{tel}}" maxlength="20" placeholder="请输入手机号或座机" bindinput="handleInputTel"/>
+    </view>
+    <view class="form-item column">
+      <text class="label">详细地址</text>
+      <textarea class="textarea" value="{{address}}" maxlength="200" placeholder="省市区 + 街道门牌号" bindinput="handleInputAddress"></textarea>
+    </view>
+    <view class="form-item">
+      <text class="label">设为默认</text>
+      <switch checked="{{isDefault}}" color="#2f7b27" bindchange="toggleDefault"/>
+    </view>
+  </view>
+
+  <button class="submit" bindtap="submit" loading="{{submitting}}" disabled="{{submitting}}">保存地址</button>
 </view>
-</view>
-</view>
-</view>
-<button bindtap="submit">确定</button>

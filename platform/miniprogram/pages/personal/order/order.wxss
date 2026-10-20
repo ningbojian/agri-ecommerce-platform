@@ -1,68 +1,153 @@
-page{
-  background-color:rgb(224, 223, 220);
+page {
+  background: #f5f1e8;
 }
-.orderDetails {
-  background: rgb(250, 247, 247);
-  border-bottom: 20rpx solid rgb(224, 223, 220);
-  border-radius: 8%;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 30rpx;
 }
- 
-.orderListTitle {
-  height: 70rpx;
-  line-height: 100rpx;
-  border-bottom: 1rpx solid #BEBEBE;
-}
- 
- 
-.orderListTitle .orderStatus {
-  float: right;
-  margin-right: 20rpx;
-  color: #2f7b27;
-  font-size: 34rpx;
-  font-size: small;
-}
- 
-.orderListDetails {
+
+.tabs {
   display: flex;
-  height: 200rpx;
-  border-bottom: 1rpx solid #f3f3f3;
+  white-space: nowrap;
+  background: #ffff99;
+  padding: 16rpx 10rpx;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
- 
-.orderListDetails .productImg {
+
+.tab {
+  display: inline-block;
+  padding: 8rpx 26rpx;
+  margin: 0 6rpx;
+  font-size: 26rpx;
+  color: #5c5544;
+  border-radius: 26rpx;
+}
+
+.tab.active {
+  background: #2f7b27;
+  color: #fff;
+}
+
+.order-card {
+  margin: 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+}
+
+.order-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.order-no {
+  color: #777;
+  font-size: 22rpx;
+}
+
+.status {
+  font-size: 26rpx;
+  color: #2f7b27;
+}
+
+.status-created {
+  color: #e53935;
+}
+
+.status-cancelled {
+  color: #999;
+}
+
+.order-body {
+  display: flex;
+  padding: 18rpx 0;
+  align-items: center;
+}
+
+.product-img {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 12rpx;
+  background: #eee;
+  flex-shrink: 0;
+}
+
+.product-info {
   flex: 1;
-  height:180rpx;
-  width:120px;
-  margin-top: 20rpx;
-  margin-left: 20rpx;
+  margin-left: 18rpx;
+  overflow: hidden;
 }
- 
-.orderListDetails .productImg image {
-  width: 100px;
-  height: 100%;
+
+.product-title {
+  font-size: 28rpx;
+  color: #222;
+  font-weight: 600;
 }
- 
-.orderListDetails .productInfo {
-  flex: 4;
-  margin: 40rpx 10px 20px 30rpx;
-  font-size:15px;
- 
+
+.product-sub {
+  margin-top: 8rpx;
+  color: #888;
+  font-size: 22rpx;
 }
- 
-.orderListDetails .productInfo .productTitle {
-  font-size:13px;
-  word-break:keep-all;     /* 不换行 */
-  white-space:nowrap;      /* 不换行 */
-  margin-bottom:10px;
+
+.amount {
+  color: #e53935;
+  font-size: 30rpx;
+  font-weight: 600;
 }
- 
-.productCount {
-  height: 80rpx;
-  line-height: 80rpx;
-  border-bottom: 1rpx solid #f3f3f3;
+
+.order-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14rpx;
+  border-top: 1rpx solid #f0f0f0;
 }
- 
-.productCount>view {
-  color: rgb(235, 83, 83);
-  float: right;
-  margin-right: 30rpx;
+
+.order-foot .time {
+  color: #aaa;
+  font-size: 20rpx;
+}
+
+.actions {
+  display: flex;
+}
+
+.btn {
+  margin-left: 14rpx;
+  font-size: 22rpx;
+  border-radius: 24rpx;
+  background: #fff;
+  color: #555;
+  border: 1rpx solid #ddd;
+}
+
+.btn.primary {
+  background: #2f7b27;
+  color: #fff;
+  border-color: #2f7b27;
+}
+
+.btn.danger {
+  color: #d43c33;
+  border-color: #d43c33;
+}
+
+.state {
+  padding: 60rpx 0;
+  text-align: center;
+  color: #999;
+  font-size: 26rpx;
+}
+
+.retry {
+  margin-top: 16rpx;
+  background: #2f7b27;
+  color: #fff;
 }

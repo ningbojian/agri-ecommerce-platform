@@ -1,168 +1,138 @@
-.banners{
-  width: 100%;
-  height: 400rpx;
-}
-.banners image{
-  width: 100%;
-  height: 100%;
-}
 page {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-/* 直接设置swiper属性 */
-swiper {
-  height: 500rpx;
-}
-swiper-item image {
-  width: 100%;
-  height: 100%;
-}
-.detail {
-  display: flex;
-  flex-direction: column;
-  margin-top: 15rpx;
-  margin-bottom: 0rpx;
-}
-.detail .title {
-  font-size: 40rpx;
-  margin: 10rpx;
-  color: black;
-  text-align: justify;
-}
-.detail .price {
-  color: red;
-  font-size: 40rpx;
-  margin: 10rpx;
-}
-.detail .desc {
-  color: rgb(68, 68, 68);
-  font-size: 30rpx;
-  margin-top: 10rpx;
-  margin-bottom: 20rpx;
-  height: 50px;
-}
-.detail .supname {
-  color:#808080;
-  margin-top:25px;
-  font-size:30rpx;
-  float: right;
+  background: #f5f1e8;
+  padding-bottom: 120rpx;
 }
 
-.line_flag {
-  width: 80rpx;
-  height: 1rpx;
-  display: inline-block;
-  margin: 20rpx auto;
-  background-color: gainsboro;
-  text-align: center;
-}
-.line {
+.banner {
   width: 100%;
-  height: 2rpx;
-  display: inline-block;
-  margin: 20rpx 0rpx;
-  background-color: gainsboro;
-  text-align: center;
+  height: 520rpx;
+  background: #eee;
 }
-.detail-nav {
+
+.detail {
+  margin: 20rpx;
+  padding: 24rpx;
+  background: #fff;
+  border-radius: 16rpx;
+}
+
+.detail .title {
+  display: block;
+  font-size: 38rpx;
+  font-weight: 600;
+  color: #222;
+}
+
+.detail .price-row {
+  margin-top: 16rpx;
   display: flex;
-  flex-direction: row;
+  align-items: baseline;
+}
+
+.detail .price {
+  color: #e53935;
+  font-size: 44rpx;
+}
+
+.detail .unit {
+  margin-left: 8rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.detail .tags {
+  display: flex;
+  margin-top: 16rpx;
+  color: #888;
+  font-size: 24rpx;
+}
+
+.detail .tags text {
+  margin-right: 24rpx;
+}
+
+.detail .desc {
+  margin-top: 24rpx;
+  color: #555;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.detail .supname {
+  margin-top: 24rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #eee;
+  color: #777;
+  font-size: 26rpx;
+}
+
+.qty-row {
+  margin-top: 24rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #eee;
+  display: flex;
   align-items: center;
-  float: left;
-  background-color: #FFFF99;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  width: 200rpx;
+  height: 60rpx;
+  border: 1rpx solid #bbb;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.stepper text {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 34rpx;
+  background: #f2f2f2;
+}
+
+.stepper input {
+  flex: 1;
+  height: 60rpx;
+  text-align: center;
+  font-size: 26rpx;
+}
+
+.stepper .disabled {
+  color: #ccc;
+}
+
+.stepper .normal {
+  color: #333;
+}
+
+.detail-nav {
   position: fixed;
-  bottom: 0;
+  left: 0;
   right: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100rpx;
+  bottom: 0;
+  z-index: 5;
+  background: #ffff99;
+  padding: 14rpx 24rpx;
 }
 
 .button-red {
-  background-color: #f44336; /* 红色 */
-  width: 150px;
-}
-.image_detail {
   width: 100%;
+  height: 84rpx;
+  line-height: 84rpx;
+  background: #e53935;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 42rpx;
 }
-button {
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 30rpx;
-  border-radius: 0rpx;
-  width: 50%;
-  height: 100%;
-  line-height: 100rpx;
-}
-.detail-nav image {
-  width: 70rpx;
-  height: 50rpx;
-  margin: 20rpx 40rpx;
-}
-.line_nav {
-  width: 5rpx;
-  height: 100%;
-  background-color: gainsboro;
-}
-/* 占位 */
-.temp {
-  height: 100rpx;
-}
-text {
-  display: block;
-  height: 60rpx;
-  line-height: 60rpx;
-  font-size: 30rpx;
-  margin: 10rpx;
-}
-.text-remark {
-  display: block;
-  font-size: 25rpx;
-  margin: 10rpx;
-}
-/* 选择数量 */
 
-/*主容器*/
-.stepper {
-	width: 100px;
-	height: 30px;
-	/*给主容器设一个边框*/
-	border: 1px solid rgb(88, 88, 88);
-	border-radius: 3px;
-	margin:0 auto;
-}
- 
-/*加号和减号*/
-.stepper text {
-	width: 19px;
-	line-height: 26px;
-	text-align: center;
-	float: left;
-}
- 
-/*数值*/
-.stepper input {
-	width: 40px;
-	height: 26px;
-	float: left;
-	margin: 0 auto;
-	text-align: center;
-	font-size: 12px;
-	/*给中间的input设置左右边框即可*/
-	border-left: 1px solid rgb(87, 87, 87);
-	border-right: 1px solid rgb(95, 95, 95);
-}
- 
-/*普通样式*/
-.stepper .normal{
-	color: black;
-}
- 
-/*禁用样式*/
-.stepper .disabled{
-	color: #ccc;
+.state {
+  padding: 120rpx 0;
+  text-align: center;
+  color: #999;
 }

@@ -54,7 +54,6 @@ public class Result<T> {
      * @return
      */
     public static<T> Result<T> ok(T data){
-        Result<T> result = build(data);
         return build(data, ResultCodeEnum.SUCCESS);
     }
 
@@ -69,7 +68,6 @@ public class Result<T> {
      * @return
      */
     public static<T> Result<T> fail(T data){
-        Result<T> result = build(data);
         return build(data, ResultCodeEnum.FAIL);
     }
 
@@ -84,9 +82,7 @@ public class Result<T> {
     }
 
     public boolean isOk() {
-        if(this.getCode().intValue() == ResultCodeEnum.SUCCESS.getCode().intValue()) {
-            return true;
-        }
-        return false;
+        return this.getCode() != null
+                && this.getCode().intValue() == ResultCodeEnum.SUCCESS.getCode().intValue();
     }
 }

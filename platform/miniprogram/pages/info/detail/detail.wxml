@@ -1,0 +1,11 @@
+<view wx:if="{{loading}}" class="state">加载中...</view>
+<view wx:elif="{{error}}" class="state">{{error}}</view>
+<view wx:else class="page">
+  <view class="title">{{article.title}}</view>
+  <view class="meta">
+    <text>{{article.author}}</text>
+    <text>{{article.publishTime}}</text>
+  </view>
+  <image wx:if="{{article.coverUrl}}" class="cover" src="{{article.coverUrl}}" mode="aspectFill"></image>
+  <text class="content">{{article.content}}</text>
+</view>

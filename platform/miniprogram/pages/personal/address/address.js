@@ -1,106 +1,99 @@
 // pages/personal/address/address.js
-import request from '../../../utils/req'
-import req from '../../../utils/reqs'
+import request from '../../../utils/request'
+import auth from '../../../utils/auth'
+
+const SELECTED_ADDRESS_KEY = 'xcfp_selected_address_id'
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    userid:'',
-    current:1,
-    limit:100,
-    addList:{},
-    flag:''
+    list: [],
+    loading: true,
+    error: '',
+    selectMode: false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-  save(){
-    wx.setStorageSync('upadd','')
-    wx.navigateTo({
-      url: '../address/saveadd/saveadd',
+  onLoad(options) {
+    this.setData({
+      selectMode: options.select === '1'
     })
   },
-  update(e){
-    wx.setStorageSync('upadd',e.currentTarget.id)
-    wx.navigateTo({
-      url: '../address/saveadd/saveadd',
-    })
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: async function () {
-    let flag=wx.getStorageSync('flag')
-    let va=wx.getStorageSync('userInfo')
-    if(flag!=-1){
-      this.setData({
-        flag:flag+1
-      })
+
+  onShow() {
+    if (!auth.requireLogin()) {
+      return
     }
-    this.setData({
-      userid:va.id,
+    this.loadList()
+  },
+
+  async loadList() {
+    this.setData({ loading: true, error: '' })
+    try {
+      const list = await request('/app/address/list', { base: 'user', silent: true })
+      this.setData({ list: list || [], loading: false })
+    } catch (e) {
+      this.setData({ loading: false, error: e.message || '地址加载失败' })
+    }
+  },
+
+  add() {
+    wx.navigateTo({ url: '/pages/personal/address/saveadd/saveadd' })
+  },
+
+  edit(e) {
+    const id = e.currentTarget.dataset.id
+    wx.navigateTo({ url: `/pages/personal/address/saveadd/saveadd?id=${id}` })
+  },
+
+  choose(e) {
+    if (!this.data.selectMode) {
+      return
+    }
+    const id = e.currentTarget.dataset.id
+    wx.setStorageSync(SELECTED_ADDRESS_KEY, id)
+    wx.navigateBack()
+  },
+
+  remove(e) {
+    const id = e.currentTarget.dataset.id
+    wx.showModal({
+      title: '删除地址',
+      content: '确定删除这条收货地址吗？',
+      success: async (res) => {
+        if (!res.confirm) {
+          return
+        }
+        try {
+          await request(`/app/address/${id}`, {
+            base: 'user',
+            method: 'DELETE',
+            loading: true
+          })
+          wx.showToast({ title: '已删除', icon: 'success' })
+          this.loadList()
+        } catch (e) {
+          // request 已提示错误
+        }
+      }
     })
-    let result=await request(`/admin/address/findByUserId/${this.data.userid}/${this.data.current}/${this.data.limit}`)
-    this.setData({
-      addList:result.data.records
-    })
-    wx.setStorageSync('addList', this.data.addList)
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  async setDefault(e) {
+    const id = e.currentTarget.dataset.id
+    try {
+      await request(`/app/address/${id}/default`, {
+        base: 'user',
+        method: 'POST',
+        loading: true
+      })
+      wx.showToast({ title: '已设为默认', icon: 'success' })
+      this.loadList()
+    } catch (e) {
+      // request 已提示错误
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-  remove: async function(e){
-    await req(`/admin/address/removeById/${this.data.addList[e.currentTarget.id]['id']}`)
-    this.onShow()
-  },
-  submit(e){
-    wx.setStorageSync('flag',e.currentTarget.id)
-    wx.navigateBack({
-      delta: 0,
-    })
-  },
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onPullDownRefresh: async function () {
+    await this.loadList()
+    wx.stopPullDownRefresh()
   }
 })

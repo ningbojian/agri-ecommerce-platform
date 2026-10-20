@@ -1,67 +1,60 @@
 package xcfp.common.config;
 
 import com.google.common.base.Predicates;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @author Kerr
- * @create 2021-10-13 19:30
+ * Swagger 分组：小程序端 /app、管理端 /admin、服务间 /internal。
+ * 如 Springfox 与当前 Spring Boot 版本不兼容，可设置 xcfp.swagger.enabled=false 关闭。
  */
 @Configuration
 @EnableSwagger2
+@ConditionalOnProperty(name = "xcfp.swagger.enabled", havingValue = "true", matchIfMissing = true)
 public class Swagger2Config {
 
     @Bean
-    public Docket webApiConfig(){
-
+    public Docket appApiConfig() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("webApi")
-                .apiInfo(webApiInfo())
+                .groupName("appApi")
+                .apiInfo(apiInfo("小程序端 API"))
                 .select()
-                //只显示api路径下的页面
-                .paths(Predicates.and(PathSelectors.regex("/api/.*")))
+                .paths(Predicates.and(PathSelectors.regex("/app/.*")))
                 .build();
-
     }
 
     @Bean
-    public Docket adminApiConfig(){
-
+    public Docket adminApiConfig() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("adminApi")
-                .apiInfo(adminApiInfo())
+                .apiInfo(apiInfo("管理后台 API"))
                 .select()
-                //只显示admin路径下的页面
                 .paths(Predicates.and(PathSelectors.regex("/admin/.*")))
                 .build();
-
     }
 
-    private ApiInfo webApiInfo(){
-
-        return new ApiInfoBuilder()
-                .title("网站-API文档")
-                .description("本文档描述了网站微服务接口定义")
-                .version("1.0")
+    @Bean
+    public Docket internalApiConfig() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("internalApi")
+                .apiInfo(apiInfo("服务间内部 API"))
+                .select()
+                .paths(Predicates.and(PathSelectors.regex("/internal/.*")))
                 .build();
     }
 
-    private ApiInfo adminApiInfo(){
-
+    private ApiInfo apiInfo(String title) {
         return new ApiInfoBuilder()
-                .title("后台管理系统-API文档")
-                .description("本文档描述了后台管理系统微服务接口定义")
-                .version("1.0")
+                .title(title)
+                .description("xcfp 电商助农平台接口文档")
+                .version("2.0")
                 .build();
     }
-
-
 }
