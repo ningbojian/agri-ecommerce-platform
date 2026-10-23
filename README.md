@@ -1,4 +1,13 @@
 # 电商助农平台 · 全栈电商系统
+<!-- profile-agent:readme:start -->
+面向课程与竞赛演示的全栈助农电商平台：原生微信小程序用户端 + Spring Boot 三服务后端 + Vue 3 管理后台，覆盖注册登录、商品浏览、收货地址、下单、模拟支付、后台发货到确认收货的完整业务闭环。
+
+- **三服务 + 三库架构**：`service_proinfo`(8201/`xcfp_pro`)、`service_user`(8202/`xcfp_user`)、`service_sup`(8203/`xcfp_sup`) 按业务边界独立部署，公共模块拆为 `common_util`/`service_util`/`model`，跨服务通过 HTTP 与内部接口协作。
+- **认证与权限落地**：`JwtUtil` 统一签发、各服务本地验签；`AuthInterceptor` 区分 `/app/**`(USER)、`/admin/**`(ADMIN)，`InternalTokenInterceptor` 校验 `/internal/**` 的 `X-Internal-Token`；密码经 BCrypt 处理。
+- **库存一致性**：下单经 `ProductInternalController` 的 `/internal/product/reserve` 原子扣减库存并返回商品快照，落库失败调用 release 补偿；订单金额由服务端按快照计算。
+- **可替换支付**：`PaymentGateway` 抽象 + `MockPaymentGateway` 默认实现，`WechatPaymentGateway` 为占位，支付流水经 `PaymentRecord` 落库。
+- **配套交付物**：`platform/admin-web` 提供商品、分类、资讯、订单、用户、供应商、反馈 7 个管理模块与登录页；`sql/` 含 reset/schema/seed；`scripts/` 提供后端冒烟测试与小程序静态校验脚本；`competition-miniprogram/` 保留 2021 比赛版归档，`docs/` 收录设计文档、历史截图与面试考点笔记。
+<!-- profile-agent:readme:end -->
 
 <p align="center">
   <strong>原生微信小程序 + Spring Boot 三服务 + Vue 3 管理后台</strong><br/>
